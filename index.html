@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassMate Cameroon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ClassMate</h1>
+        <p>Your student assistant</p>
+    </header>
+
+    <main>
+
+        <section class="welcome">
+            <h2>Welcome 👋</h2>
+            <p>Organize your schoolwork and stay on top of your studies.</p>
+        </section>
+
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>📝 Assignments</h3>
+                <p>Keep track of your school assignments.</p>
+                <button onclick="openAssignmentForm()">Add Assignment</button>
+            </div>
+
+            <div class="card">
+                <h3>📚 Study Plan</h3>
+                <p>Plan what you want to study.</p>
+                <button onclick="openStudyForm()">
+                    Create Study Plan
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>📅 Timetable</h3>
+                <p>Organize your school timetable.</p>
+                <button onclick="alert('Timetable coming soon!')">
+                    View Timetable
+                </button>
+            </div>
+
+        </section>
+<!-- Study Plan Form -->
+
+<section id="studyForm" class="form-section">
+
+    <h2>Create Study Session</h2>
+
+    <input
+        type="text"
+        id="studySubject"
+        placeholder="Subject"
+    >
+
+    <input
+        type="text"
+        id="studyTopic"
+        placeholder="Topic to study"
+    >
+
+    <label for="studyDate">Study date</label>
+
+    <input
+        type="date"
+        id="studyDate"
+    >
+
+    <label for="startTime">Start time</label>
+
+    <input
+        type="time"
+        id="startTime"
+    >
+
+    <label for="endTime">End time</label>
+
+    <input
+        type="time"
+        id="endTime"
+    >
+
+    <button onclick="addStudySession()">
+        Save Study Session
+    </button>
+
+    <button
+        class="cancel-button"
+        onclick="closeStudyForm()"
+    >
+        Cancel
+    </button>
+
+</section>
+
+<!-- Study Sessions -->
+
+<section class="assignments">
+
+    <h2>📚 My Study Plan</h2>
+
+    <div id="studyList">
+        <p class="empty-message">
+            No study sessions yet.
+        </p>
+    </div>
+
+</section>
+        <!-- Assignment Form -->
+
+        <section id="assignmentForm" class="form-section">
+
+            <h2>Add Assignment</h2>
+
+            <input
+                type="text"
+                id="assignmentName"
+                placeholder="Assignment name"
+            >
+
+            <input
+                type="text"
+                id="assignmentSubject"
+                placeholder="Subject"
+            >
+
+            <label for="dueDate">Due date</label>
+
+            <input
+                type="date"
+                id="dueDate"
+            >
+
+            <button onclick="addAssignment()">Save Assignment</button>
+
+            <button
+                class="cancel-button"
+                onclick="closeAssignmentForm()"
+            >
+                Cancel
+            </button>
+
+        </section>
+
+        <!-- Assignment List -->
+
+        <section class="assignments">
+
+            <h2>My Assignments</h2>
+
+            <div id="assignmentList">
+                <p class="empty-message">
+                    No assignments yet.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 ClassMate Cameroon</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
