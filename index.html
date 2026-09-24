@@ -40,8 +40,9 @@
             <div class="card">
                 <h3>📅 Timetable</h3>
                 <p>Organize your school timetable.</p>
-                <button onclick="alert('Timetable coming soon!')">
+                <button onclick="document.getElementById('timetableList').scrollIntoView({ behavior: 'smooth' })">
                     View Timetable
+
                 </button>
             </div>
 
@@ -160,6 +161,79 @@
             </div>
 
         </section>
+
+        <!-- Weekly Timetable -->
+
+<section class="assignments">
+
+    <h2>📅 My Weekly Timetable</h2>
+
+    <button onclick="openTimetableForm()">
+        Add Class
+    </button>
+
+    <div id="timetableList">
+
+        <p class="empty-message">
+            No classes added yet.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Timetable Form -->
+
+<section id="timetableForm" class="form-section">
+
+    <h2>Add Class</h2>
+
+    <input
+        type="text"
+        id="classSubject"
+        placeholder="Subject"
+    >
+
+    <label for="classDay">Day</label>
+
+    <select id="classDay">
+
+        <option value="">Select a day</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+
+    </select>
+
+    <label for="classStart">Start time</label>
+
+    <input
+        type="time"
+        id="classStart"
+    >
+
+    <label for="classEnd">End time</label>
+
+    <input
+        type="time"
+        id="classEnd"
+    >
+
+    <button onclick="addClass()">
+        Save Class
+    </button>
+
+    <button
+        class="cancel-button"
+        onclick="closeTimetableForm()"
+    >
+        Cancel
+    </button>
+
+</section>
 
     </main>
 

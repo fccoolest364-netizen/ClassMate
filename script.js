@@ -246,3 +246,136 @@ function deleteStudySession(id) {
 }
 
 displayStudySessions();
+
+let timetable = JSON.parse(
+    localStorage.getItem("classmateTimetable")
+) || [];
+
+function openTimetableForm() {
+    document.getElementById("timetableForm").style.display = "block";
+}
+
+function closeTimetableForm() {
+    document.getElementById("timetableForm").style.display = "none";
+}
+
+function addClass() {
+
+    const subject = document.getElementById("classSubject").value;
+    const day = document.getElementById("classDay").value;
+    const start = document.getElementById("classStart").value;
+    const end = document.getElementById("classEnd").value;
+
+    if (
+        subject === "" ||
+        day === "" ||
+        start === "" ||
+        end === ""
+    ) {
+        alert("Please fill in all the fields.");
+        return;
+    }
+
+    const newClass = {
+        id: Date.now(),
+        subject: subject,
+        day: day,
+        start: start,
+        end: end
+    };
+
+    timetable.push(newClass);
+
+    saveTimetable();
+    displayTimetable();
+
+    document.getElementById("classSubject").value = "";
+    document.getElementById("classDay").value = "";
+    document.getElementById("classStart").value = "";
+    document.getElementById("classEnd").value = "";
+
+    closeTimetableForm();
+}
+
+function saveTimetable() {
+
+    localStorage.setItem(
+        "classmateTimetable",
+        JSON.stringify(timetable)
+    );
+}
+
+function displayTimetable() {
+
+    const timetableList =
+        document.getElementById("timetableList");
+
+    timetableList.innerHTML = "";
+
+    if (timetable.length === 0) {
+
+        timetableList.innerHTML = `
+            <p class="empty-message">
+                No classes added yet.
+            </p>
+        `;
+
+        return;
+    }
+
+    timetable.forEach(function(classItem) {
+
+        const classElement =
+            document.createElement("div");
+
+        classElement.className = "assignment";
+
+        classElement.innerHTML = `
+            <div>
+
+                <h3>${classItem.subject}</h3>
+
+                <p>
+                    Day: ${classItem.day}
+                </p>
+
+                <p>
+                    Time: ${classItem.start} - ${classItem.end}
+                </p>
+
+            </div>
+
+            <div class="assignment-buttons">
+
+                <button
+                    onclick="deleteClass(${classItem.id})"
+                >
+                    Delete
+                </button>
+
+            </div>
+        `;
+
+        timetableList.appendChild(classElement);
+    });
+}
+
+function deleteClass(id) {
+
+    timetable = timetable.filter(function(classItem) {
+        return classItem.id !== id;
+    });
+
+    saveTimetable();
+    displayTimetable();
+}
+
+displayTimetable();
+
+function openTimetableForm() {
+    document.getElementById("timetableForm").style.display = "block";
+}
+
+function closeTimetableForm() {
+    document.getElementById("timetableForm").style.display = "none";
+}
