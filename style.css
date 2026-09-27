@@ -193,3 +193,75 @@ footer {
         flex: 1;
     }
 }
+/* Timetable styling */
+
+.timetable-day {
+    margin-bottom: 20px;
+}
+
+.timetable-day h3 {
+    background: #2563eb;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.timetable-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+}
+
+.timetable-class strong {
+    font-size: 17px;
+}
+
+.timetable-class p {
+    color: #6b7280;
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+    .timetable-class {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+.timetable-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+}
+
+.timetable-class strong {
+    font-size: 17px;
+}
+
+.timetable-class p {
+    color: #6b7280;
+    margin-top: 5px;
+}
+.timetable-day {
+    margin-bottom: 25px;
+}
+
+.timetable-day > h3 {
+    background: #2563eb;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
